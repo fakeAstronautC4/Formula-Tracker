@@ -1,2 +1,33 @@
 {% extends 'base.html' %}
+ 
+{% block body %}
+    <div class="c-details">
+      <div id="cont-1" class="container-3" >
+        <h3 id="header1">{{ df.formula_code }}</h3>
+        <div class="details-rows">
+          <h5 class="form-label a">Name  </h5>
+          <h5 class="det-1">{{ df.name }}</h5>
+        </div>
+        <div class="details-rows">
+          <h5 class="form-label a">Customer  </h5>
+          <h5 class="det-1">{{ df.customer }}</h5>
+        </div>
+        <div class="details-rows">
+          <h5 class="form-label a">Initial Viscosity  </h5>
+          <h5 class="det-1">{{ df.init_visc }}</h5>
+        </div>
+        <div class="details-rows">
+          <h5 class="form-label a">Initial pH  </h5>
+          <h5 class="det-1">{{ df.init_pH }}</h5>
+        </div>
+        <div class="details-rows">
+          <h5 class="form-label a">Specific Gravity  </h5>
+          <h5 class="det-1">{{ df.init_sg }}</h5>
+        </div>
+        <textarea readonly id="details-txt" rows="12" cols="50" class="form-label">{{ df.description }}</textarea><br>
+        <a class="btn btn-outline-primary" href="/update/{{ df.formula_id }}" role="button">Update</a>
+        </div>
+      </div>
+    </div>
 
+{% endblock %}

@@ -1,23 +1,46 @@
 {% extends 'base.html' %}
 
 
+
 {% block body %}
-<table class="table table-hover table-dark">
-  <thead>
-    <tr>
-      <th scope="col">Formula Code</th>
-      <th scope="col">Name</th>
-      <th scope="col">Customer</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for formulas in query %}
-      <tr>
-        <th scope="row">{{ formulas.formula_code }}</th>
-        <td>{{ formulas.name }}</td>
-        <td>{{ formulas.customer }}</td>
-        <td><a class="btn btn-primary" href="formulae/details/{{ formulas.formula_code }}" role="button">Details</a></td>
-      </tr>
-    {% endfor %}
-</table>  
+
+<form class="add-formula", action="{{ url_for('add_formula') }}", method="POST">
+    {{ nf.hidden_tag() }}
+  <h4>Add New Formula</h4>
+  <div class="input-group mb-3">
+    {{ nf.formula_code (class="form-control", placeholder="FM-0000") }}
+  </div>
+  <div class="input-group mb-3">
+    {{ nf.name (class="form-control", placeholder="Name") }}
+  </div>
+  <div class="input-group mb-3">
+    {{ nf.customer (class="form-control", placeholder="Customer") }}
+  </div>
+  <div id="specifications" class="input-group">
+    {{ nf.init_visc (class="form-control", placeholder="Initial Viscosity") }}
+    {{ nf.init_pH (class="form-control", placeholder="Initial pH") }}
+    {{ nf.init_sg (class="form-control", placeholder="Specific Gravity") }}
+  </div>
+  <div class="input-group">
+    {{ nf.description(class="form-control", rows="8", placeholder="Description") }}
+  </div>
+  <div id="sub-formula">
+    {{ nf.submit(class="btn btn-outline-primary") }}
+  </div>
+</form>
+
+
+
+
+<br>
+<br>
+
+
+
+
+
+
+
+
+  
 {% endblock %}

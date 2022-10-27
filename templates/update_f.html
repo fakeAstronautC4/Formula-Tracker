@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+ 
+{% block body %}
+
+    <form class="add-formula", action="{{ url_for('update_enforce') }}", method="POST">
+        {{ nf.hidden_tag() }}
+      <h4>{{ df.formula_code }}</h4>
+      <div class="input-group mb-3">
+        {{ nf.formula_code (class="form-control", value= df.formula_code ) }}
+      </div>
+      <div class="input-group mb-3">
+        {{ nf.name (class="form-control", value= name ) }}
+      </div>
+      <div class="input-group mb-3">
+        {{ nf.customer (class="form-control", value= df.customer ) }}
+      </div>
+      <div id="specifications" class="input-group">
+        {{ nf.init_visc (class="form-control", value= df.init_visc ) }}
+        {{ nf.init_pH (class="form-control", value= df.init_pH ) }}
+        {{ nf.init_sg (class="form-control", value= df.init_sg ) }}
+      </div>
+      <div class="input-group">
+        <textarea class="form-control" rows="8" name="description">{{ df.description }}</textarea>
+      </div>
+      <div id="sub-formula">
+        {{ nf.submit(class="btn btn-outline-primary") }}
+      </div>
+    </form>
+
+{% endblock %}

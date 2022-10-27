@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<br>
+<div class="search-result">
+    {% for result in formulas %}
+        <div class="detailed-f">
+            <h5>{{ result.name }} | {{ result.formula_code }}</h5>
+            
+            <a class="btn btn-primary" href="/details/{{ result.formula_id }}" role="button">Details</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

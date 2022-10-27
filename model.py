@@ -1,6 +1,7 @@
 from enum import unique
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import ForeignKey
+from flask_login import UserMixin
 
 db = SQLAlchemy()
 
@@ -23,12 +24,15 @@ class Admin(db.Model):
     password = db.Column(db.String, nullable=False) #------------------------
 
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     user_id = db.Column(db.Integer, primary_key = True, autoincrement = True)
-    email = db.Column(db.String(20), unique=True, nullable = False)
+    email = db.Column(db.String(40), unique=True, nullable = False)
     password = db.Column(db.String, nullable=False)
+
+    def get_id(self):
+        return (self.user_id)
 
     def __init__ (self, email, password):
         self.email = email
@@ -44,12 +48,15 @@ class Formula(db.Model):
     formula_id = db.Column(db.Integer, primary_key =True, autoincrement = True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable = False)
     formula_code = db.Column(db.String, nullable = False, unique=True)
-    name = db.Column(db.String(250), nullable = False)
+    name = db.Column(db.String(250), nullable = False, unique=True)
     description = db.Column(db.Text, nullable = False)
     customer = db.Column(db.String, nullable = True)
     init_visc = db.Column(db.Integer, nullable = True)
     init_pH = db.Column(db.Float, nullable = True)
     init_sg = db.Column(db.Float, nullable = True)
+
+
+    user = db.relationship('User', backref='formulas')
 
     def __init__ (self, user_id, formula_code, name, description, customer="TBD", init_visc=0, init_pH=0, init_sg=0):
         self.user_id = user_id
@@ -70,7 +77,7 @@ class Material(db.Model):
 
 
     rm_id = db.Column(db.Integer, primary_key =True, autoincrement =True)
-    rm_code = db.Column(db.String, unique = True, nullable = False)
+    rm_code = db.Column(db.String, nullable = False, unique = True)
     inci = db.Column(db.String, nullable = False, unique=True)
     vendor = db.Column(db.String, nullable = False)
     price = db.Column(db.Float, nullable = False)

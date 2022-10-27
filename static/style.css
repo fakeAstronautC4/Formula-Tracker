@@ -1,0 +1,181 @@
+.add-formula{
+    max-width: 25%;
+    padding: 20px;
+}
+
+#table{
+    max-width: 98.5%;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+#specifications{
+    display: flexbox;
+    flex-direction: row;
+    padding-bottom: 15px;
+    gap: 15px;
+}
+
+.rounded{
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.detailed-f{
+    border: 1px solid rgba(78, 21, 248, 0.3);
+    padding: 10px;
+    width: 100%;
+    margin-left: 35px;
+    margin-top: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.details-rows{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.det-1{
+    color: #fff;
+    background-color: #343a40;
+    border-radius: 5px;
+}
+
+.details-rows:hover{
+    scale: 1.08;
+    transition: 0.25s;
+}
+
+#details-txt{
+    border-radius: 8px;
+}
+
+.detailed-m{
+    border: 1px solid rgba(78, 21, 248, 0.3);
+    padding: 10px;
+    max-width: fit-content;
+    margin-left: 35px;
+    border-radius: 5px;
+}
+
+.container-3{
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.c-details{
+    padding: 10px;
+    max-width: fit-content;
+    border-radius: 5px;
+    display: flex;
+}
+
+@media screen and (max-width: 425px) {
+    .container-3{
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.c-details h5{
+    padding: 2%;
+}
+
+.details-stat{
+    border-width: 1px;
+    border-style: solid;
+    margin: 20px;
+}
+
+.c-details-stat a{
+    padding: 2%;
+    flex-direction: row-reverse;
+}
+
+h3{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 200px;
+}
+
+#form-btn{
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    margin-top: 5%;
+}
+
+#back-btn{
+    height: fit-content;
+    margin: auto;
+}
+
+.search-result{
+    width: fit-content;
+    height: fit-content;
+}
+
+#header1{
+    width: fit-content;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+}
+
+#sub-formula{
+    padding: 15px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.navbar{
+    margin-bottom: 30px;
+}
+
+#logout-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#alert{
+    max-width: fit-content;
+}
+
+@media screen and (max-width:1900px) {
+    .add-formula{
+        max-width: 40%;
+    }
+}
+
+@media screen and (max-width:1400px) {
+    .add-formula{
+        max-width: 40%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .add-formula {
+      max-width: 70%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .add-formula {
+      width: 98%;
+      max-width: 100%;
+      padding: 2%;
+    }
+}

@@ -94,16 +94,13 @@ def add_formula():
 def formula_search():
     search_f = request.form.get("searched")
     result = crud.find_formula(search_f)
-    if result == None:
+    if len(result) == 0:
         flash("Not found. Revise your input and try again")
+        print (result)
         return redirect("/formulae")
     else:
-        if type(result) == list:
-            return render_template("search_f.html", formulas=result)
-        else:
-            f_lst = []
-            f_lst.append(result)    
-            return render_template("search_f.html", formulas=f_lst)
+        print (result)    
+        return render_template("search_f.html", formulas=result)
 
 
 @app.route("/details/<formula_id>")
@@ -128,6 +125,7 @@ def update_enforce():
     f_to_update = Formula.query.filter_by(formula_code = f_form.formula_code.data).first()
     if f_form.validate_on_submit():
         f_to_update = Formula.query.filter_by(formula_code = f_form.formula_code.data).first()
+        f_to_update.user_id = current_user.user_id
         f_to_update.formula_code = f_form.formula_code.data
         f_to_update.name = f_form.name.data
         f_to_update.customer = f_form.customer.data

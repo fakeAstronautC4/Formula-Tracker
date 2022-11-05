@@ -30,9 +30,12 @@ def login():
             if user.password == password:
                 login_user(user)
                 return redirect(url_for('dashboard'))
+            else:
+                flash("No user found. Check your credentials and try again!")
+                return redirect(url_for('homepage'))
         else:
-            flash("No user found. Check your credentials and try again!")
-            return redirect(url_for('homepage'))
+                flash("No user found. Check your credentials and try again!")
+                return redirect(url_for('homepage'))
     else:
         return redirect(url_for("homepage"))
 
@@ -115,6 +118,7 @@ def details_f(formula_id):
 def update(formula_id):
     formula_form = FormulaForm() 
     detailed_f = Formula.query.filter_by(formula_id = formula_id).first()
+    session['formula_code'] = detailed_f.formula_code
     return render_template("update_f.html", df=detailed_f, nf=formula_form, name=detailed_f.name)
 
 
@@ -122,9 +126,8 @@ def update(formula_id):
 @login_required
 def update_enforce():
     f_form = FormulaForm()
-    f_to_update = Formula.query.filter_by(formula_code = f_form.formula_code.data).first()
     if f_form.validate_on_submit():
-        f_to_update = Formula.query.filter_by(formula_code = f_form.formula_code.data).first()
+        f_to_update = Formula.query.filter_by(formula_code = session['formula_code']).first()
         f_to_update.user_id = current_user.user_id
         f_to_update.formula_code = f_form.formula_code.data
         f_to_update.name = f_form.name.data
@@ -135,6 +138,7 @@ def update_enforce():
         f_to_update.description = request.form.get("description")
         db.session.commit()
         flash(f"{f_to_update.formula_code} Successfully updated!")
+        session['formula_code'] = ""
         return render_template("details_f.html", df=f_to_update)
     else:
         flash("Make sure all the information is correct and try again")

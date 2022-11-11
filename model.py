@@ -1,13 +1,13 @@
-from enum import unique
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import ForeignKey
 from flask_login import UserMixin
+import os
 
 db = SQLAlchemy()
 
-def connect_to_db(flask_app, db_uri="postgresql://alons:hqO1451**Ken@localhost:5432/formula-tracker", echo=False):
+def connect_to_db(flask_app, echo=False):
     # Setting up the function to connect the database to the app 
-    flask_app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
+    flask_app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://alons:hqO1451**Ken@localhost:5432/formula-tracker"
     flask_app.config["SQLALCHEMY_ECHO"] = echo
     flask_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 

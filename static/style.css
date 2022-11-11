@@ -4,12 +4,14 @@
 }
 
 #table{
-    max-width: 98.5%;
+    max-width: 95.5%;
     padding: 20px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
 }
+
+
 
 #specifications{
     display: flexbox;
@@ -21,18 +23,6 @@
 .rounded{
     max-width: 500px;
     max-height: 500px;
-}
-
-.detailed-f{
-    border: 1px solid rgba(78, 21, 248, 0.3);
-    padding: 10px;
-    width: 100%;
-    margin-left: 35px;
-    margin-top: 15px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 }
 
 .details-rows{
@@ -120,11 +110,39 @@ h3{
     height: fit-content;
     margin: auto;
 }
-
+/* ###########################     Search Results View     ###########################*/
 .search-result{
+    display: flex;
+    flex-direction: column;
     width: fit-content;
+    max-width: 88%;
     height: fit-content;
+    border-width: 5px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.detailed-f{
+    background-color: #002466ce;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+.detailed-f a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-left: 5px;
+}
+/* #####################################################################################*/
+
 
 #header1{
     width: fit-content;

@@ -20,10 +20,7 @@
             <a class="nav-link" href="#" tabindex="-1" aria-disabled="false">Materials</a>
           </li>
         </ul>
-        <form class="d-flex" action="/formulae/search" method="POST">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searched">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        
         </div>
     </div>
 </nav>
@@ -38,40 +35,34 @@
             class="img-fluid" alt="Sample image">
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+
             <form action="/login" method="POST" >
-              {{ login_form.csrf_token() }}
-                <!-- Email input -->
+              {{ login_form.csrf_token() }}               
                 <div class="form-outline mb-4">
                     {{  login_form.email(id="form3Example3", class="form-control form-control-lg", placeholder="Enter valid email")}}
                     <label class="form-label" for="form3Example3">Email address</label>
-                </div>
-  
-                <!-- Password input -->
+                </div>  
+                
                 <div class="form-outline mb-3">
                     {{ login_form.password(id="form3Example4", class="form-control form-control-lg",
                     placeholder="Enter password")}}
                     <label class="form-label" for="form3Example4">Password</label>
                 </div>
   
-                <div class="d-flex justify-content-between align-items-center">
-                <!-- Checkbox -->
+                <div class="d-flex justify-content-between align-items-center">                
                     <div class="form-check mb-0">
-                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                        <label class="form-check-label" for="form2Example3">
-                        Remember me
-                        </label>
+                      <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                      <label class="form-check-label" for="form2Example3">Remember me</label>    
                     </div>
                     <a href="#!" class="text-body">Forgot password?</a>
                 </div>
-  
+
                 <div class="text-center text-lg-start mt-4 pt-2">
-                <button type="submit" class="btn btn-primary btn-lg"
+                  <button type="submit" class="btn btn-primary btn-lg"
                     style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-                <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
-                    class="link-danger">Register</a></p>
                 </div>
-  
             </form>
+
         </div>
       </div>
     </div>

@@ -1,9 +1,10 @@
 from flask import Flask,session,redirect,render_template,flash, request, url_for
 from jinja2 import StrictUndefined
-from model import connect_to_db,db, Formula, User
+from model import connect_to_db,db, Formula
 import crud 
 from flask_login import LoginManager, login_required, login_user, logout_user, current_user
 from forms import FormulaForm, LoginForm
+import os
 # from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -159,5 +160,5 @@ def unauthorized(e):
 if __name__== '__main__':
     app.env = 'development'
     connect_to_db(app)
-    app.run(debug=True, port = 9000, host= 'localhost')
+    app.run()
     

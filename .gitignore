@@ -1,3 +1,4 @@
 env/
 __pycache__/
-config.sh/
+config.sh/.env
+.env

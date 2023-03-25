@@ -100,10 +100,10 @@ def formula_search():
     result = crud.find_formula(search_f)
     if len(result) == 0:
         flash("Not found. Revise your input and try again")
-        print (result)
+        #print (result)
         return redirect("/formulae")
     else:
-        print (result)    
+        #print (result)    
         return render_template("search_f.html", formulas=result)
 
 
@@ -111,6 +111,7 @@ def formula_search():
 @login_required
 def details_f(formula_id):
     detailed_f = Formula.query.filter_by(formula_id = formula_id).first()
+    
     return render_template("details_f.html", df=detailed_f)
 
 
